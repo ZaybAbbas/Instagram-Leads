@@ -533,3 +533,13 @@ export default function App() {
                   <div className="relative inline-block border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                     <img src={screenshot.previewUrl} className="max-h-48 object-contain" />
                     <button onClick={() => setScreenshot(null)} className="absolute top-2 right-2 bg-slate-900/80 text-white p-1.5 rounded-full hover:bg-slate-900 transition-colors"><X size={14} /></button>
+                  </div>
+                )}
+              </div>
+              <button onClick={generateAIMessage} disabled={isGenerating} className="w-full py-3.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-md shadow-purple-500/20 disabled:opacity-70 disabled:cursor-not-allowed">
+                {isGenerating ? <><Loader2 className="animate-spin" size={18} /> Drafting with Persona...</> : <><Zap size={18} /> Generate Perfect DM</>}
+              </button>
+              {generatedText && (
+                <div className="bg-[#F8FAFC] p-5 rounded-xl border border-purple-100 shadow-inner relative">
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="flex items-center gap-2 text-xs font-bold text-purple-700 uppercase tracking-wide"><Sparkles size={14} /> AI Draft</div>
